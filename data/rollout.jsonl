@@ -1,0 +1,4 @@
+{"id":"R0","region":"Z0","planned_start":"2026-05-01","actual_start":"2026-05-01","neighbor_regions":["Z1"],"eligible_categories":["fridge","aircon"],"known_at":"2026-04-01T09:00:00+08:00"}
+{"id":"R1","region":"Z1","planned_start":"2026-06-01","actual_start":"2026-06-02","neighbor_regions":["Z2"],"eligible_categories":["fridge","aircon"],"known_at":"2026-04-01T09:00:00+08:00"}
+{"id":"R2","region":"Z2","planned_start":"2026-07-01","actual_start":"2026-07-03","neighbor_regions":["Z3"],"eligible_categories":["fridge","aircon"],"known_at":"2026-04-01T09:00:00+08:00"}
+{"id":"R3","region":"Z3","planned_start":"2026-05-01","actual_start":"2026-05-04","neighbor_regions":["Z0"],"eligible_categories":["fridge","aircon"],"known_at":"2026-04-01T09:00:00+08:00"}

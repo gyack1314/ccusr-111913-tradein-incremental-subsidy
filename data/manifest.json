@@ -1,0 +1,118 @@
+{
+  "project": "tradein-incremental-subsidy",
+  "version": "2026-09-synthetic-v1",
+  "synthetic": true,
+  "tables": [
+    {
+      "name": "submissions",
+      "key": "id",
+      "refs": {},
+      "fields": {
+        "id": "申报身份",
+        "merchant": "商户",
+        "old_serial": "已报旧机序列号",
+        "region": "商户片区",
+        "resident_region": "居民来源片区",
+        "category": "品类",
+        "new_order": "购新事实",
+        "old_receipt": "交旧事实",
+        "processing": "处理事实",
+        "submitted_at": "提交时点",
+        "period": "补助期间"
+      },
+      "path": "data/submissions.jsonl",
+      "rows": 100,
+      "sha256": "73fba9924622b1e78b7f99fffdd921df43838a919d18dde9d19267e9c617c839"
+    },
+    {
+      "name": "transactions",
+      "key": "id",
+      "refs": {},
+      "fields": {
+        "id": "事实身份",
+        "kind": "购新交旧或规范处理",
+        "occurred_at": "实际发生",
+        "known_at": "资料到达",
+        "status": "pending未决、cancelled取消、confirmed确认",
+        "units": "涉及台数",
+        "refund_cents": "确认退款额",
+        "old_serial": "旧机序列号"
+      },
+      "path": "data/transactions.jsonl",
+      "rows": 300,
+      "sha256": "6c7345269329b559de689cf00c753f393e4b1610f295e61ffc45e5bc26200a1d"
+    },
+    {
+      "name": "rollout",
+      "key": "id",
+      "refs": {},
+      "fields": {
+        "id": "政策片区记录",
+        "region": "片区",
+        "planned_start": "原定启用日",
+        "actual_start": "实际启用日",
+        "neighbor_regions": "可能受外溢邻区",
+        "eligible_categories": "资格品类",
+        "known_at": "获知时点"
+      },
+      "path": "data/rollout.jsonl",
+      "rows": 4,
+      "sha256": "e70fc687ad34003dc4c9c421c125cddc0c9a477dd2aeb954dc96bec084c10d97"
+    },
+    {
+      "name": "channel_totals",
+      "key": "id",
+      "refs": {},
+      "fields": {
+        "id": "渠道月记录",
+        "region": "居民来源片区",
+        "month": "月份",
+        "channel": "回收渠道",
+        "received_units": "实际接收",
+        "processed_units": "最终处理",
+        "population": "对应人群规模",
+        "complete": "资料是否齐全",
+        "known_at": "可获知时点"
+      },
+      "path": "data/channel_totals.jsonl",
+      "rows": 108,
+      "sha256": "bfb6fc4f010b95da112803fa7b5b903f4d79d7a1ec95386e3b42e8072b449213"
+    },
+    {
+      "name": "rules",
+      "key": "id",
+      "refs": {},
+      "fields": {
+        "id": "制度身份",
+        "period": "补助期",
+        "per_verified_unit_cents": "每合格旧机上限",
+        "program_budget_cents": "整体预算",
+        "effect_link": "净新增约束解释",
+        "grace_days": "处理成熟等待日数",
+        "unknown_effect_policy": "效果未知时的业务后果"
+      },
+      "path": "data/rules.jsonl",
+      "rows": 1,
+      "sha256": "28c68c748f7c808251fc89b77d758d05b1b11166db82adb4a56f253174566cc3"
+    },
+    {
+      "name": "identity_reviews",
+      "key": "id",
+      "refs": {
+        "left_application": "submissions",
+        "right_application": "submissions"
+      },
+      "fields": {
+        "id": "审核证据",
+        "left_application": "申报一",
+        "right_application": "申报二",
+        "same_device": "是否已确认同物",
+        "known_at": "获知时间",
+        "status": "证据当前是否已确认"
+      },
+      "path": "data/identity_reviews.jsonl",
+      "rows": 2,
+      "sha256": "10051d16cf8f85f63c36c0ae71bf0725a8a50bddc7d0df1a87210c69d2b1e0dc"
+    }
+  ]
+}

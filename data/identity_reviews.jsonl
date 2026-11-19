@@ -1,0 +1,2 @@
+{"id":"I1","left_application":"A013","right_application":"A006","same_device":true,"known_at":"2026-10-02T09:00:00+08:00","status":"confirmed"}
+{"id":"I2","left_application":"A026","right_application":"A025","same_device":false,"known_at":"2026-10-03T09:00:00+08:00","status":"submitted"}
